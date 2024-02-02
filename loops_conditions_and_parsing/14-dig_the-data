@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-# Check if the log file exists
-if [ -e "apache-access.log" ]; then
-    # Use awk to extract and count occurrences of IP and HTTP status code
-    awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -rn | awk '{print $1, $2, $3}'
-else
-    echo "Error: apache-access.log file not found."
-fi
+# parses the aparse logs
+awk -F' ' '{ print $1 " " $9}' apache-access.log | sort | uniq -c | sort -nr
+
+
