@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Read the file /etc/passwd line by line using a while loop and IFS
 while IFS=: read -r username password user_id group_id home_directory command
 do
