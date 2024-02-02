@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-# Displays content of current directory
 
-for file in *-* .[!.]* ..?*
-do
-  # Skip hidden files
-  if [[ $file == .[!.]?* ]]
-  then
-    continue
-  fi
-  # Display the filename starting from the second dash
-  echo -n "${file#*-} "
+# Use a for loop to iterate through files in the current directory
+for file in *; do
+    # Check if the file is not hidden
+    if [[ ! $file == .* ]]; then
+        # Extract the part of the name after the first dash
+        name_part=$(echo "$file" | cut -d'-' -f2-)
+
+        # Display the result in a list format
+        echo "- $name_part"
+    fi
 done
-echo
